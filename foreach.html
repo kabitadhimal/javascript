@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=x, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="fruits">
+        <li id="apple" class="appleClass" data-value="appleData">Apple</li>
+        <li id="orange" class="organgeClass" data-value="orangeData">Orange</li>
+        <li id="pineapple" class="pineappleClass" data-value="pineappleData">Pineapple</li>
+        <li id="mango" class="mangoClass" data-value="mangoData">Mango</li>
+    </ul>
+
+    <script>
+        var fruitWrapper = document.querySelector('.fruits');
+        var fruits = fruitWrapper.querySelectorAll('li');
+        /*
+         * Get number of li
+         */ 
+        console.log("Length is "+fruits.length);
+
+        fruits.forEach(function(fruit) {;
+            fruit.addEventListener('click', (event) => {
+                var currentActive = fruitWrapper.querySelector(".active");
+                if (currentActive) currentActive.classList.remove("active");
+                /*
+                 * get data data attribute value
+                 */
+                console.log(event.target.dataset.value)
+                /*
+                 * get inner html
+                 */
+                console.log(event.target.innerHTML);
+                /*
+                 * get current
+                 */
+                console.log(event.target.id);
+                /*
+                 * Add active class
+                 */
+                event.target.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
